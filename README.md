@@ -37,3 +37,10 @@
     calendar.render();
     }); -->
 
+
+<!-- FINALMENTE HACER
+# php artisan 
+y 
+# npm run dev
+
+EN TERMINALES DISTINTAS !!!!! -->
