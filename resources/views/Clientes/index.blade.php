@@ -76,7 +76,7 @@
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-info">Aceptar</button>
-                                <button class="btn btn-warning">Cancelar</button>
+                                <button class="btn btn-warning" type="reset">Cancelar</button>
                             </div>
                         </form>
                     </div>

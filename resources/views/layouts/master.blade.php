@@ -35,7 +35,7 @@
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body style="min-height: 100%">
-  
+ 
 
 
 @vite(['resources/sass/app.scss', 'resources/js/agenda.js'])

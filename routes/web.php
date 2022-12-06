@@ -33,6 +33,11 @@ Route::get('/servicios/{servicio}/edit', [ServiciosController::class, 'edit'])->
 Route::put('/servicios/{servicio}',[ServiciosController::class,'update'])->name('servicios.update');
 
 Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
+Route::post('/agenda/mostrar', [App\Http\Controllers\EventosController::class, 'show']);
+Route::post('/agenda/agregar', [App\Http\Controllers\EventosController::class, 'store']);
+Route::post('/agenda/editar/{id}', [App\Http\Controllers\EventosController::class, 'edit']);
+Route::post('/agenda/borrar/{id}', [App\Http\Controllers\EventosController::class, 'destroy']);
+Route::post('/agenda/actualizar/{evento}', [App\Http\Controllers\EventosController::class, 'update']);
 
 Route::get('/clientes', [ClientesController::class, 'index'])->name('clientes.index');
 Route::POST('/clientes', [ClientesController::class, 'store'])->name('clientes.store');
@@ -57,12 +62,12 @@ Route::put('/boleta_cita/{boleta_cita}',[BoletaCitaController::class,'update'])-
 
 
 //RUTAS DE TEST
-Route::get('/test', [TestController::class, 'index'])->name('test.index');
-Route::post('/test/mostrar', [App\Http\Controllers\EventosController::class, 'show']);
-Route::post('/test/agregar', [App\Http\Controllers\EventosController::class, 'store']);
-Route::post('/test/editar/{id}', [App\Http\Controllers\EventosController::class, 'edit']);
-Route::post('/test/borrar/{id}', [App\Http\Controllers\EventosController::class, 'destroy']);
-Route::post('/test/actualizar/{evento}', [App\Http\Controllers\EventosController::class, 'update']);
+ Route::get('/test', [TestController::class, 'index'])->name('test.index');
+// Route::post('/test/mostrar', [App\Http\Controllers\EventosController::class, 'show']);
+// Route::post('/test/agregar', [App\Http\Controllers\EventosController::class, 'store']);
+// Route::post('/test/editar/{id}', [App\Http\Controllers\EventosController::class, 'edit']);
+// Route::post('/test/borrar/{id}', [App\Http\Controllers\EventosController::class, 'destroy']);
+// Route::post('/test/actualizar/{evento}', [App\Http\Controllers\EventosController::class, 'update']);
 
 //Auth::routes();
 

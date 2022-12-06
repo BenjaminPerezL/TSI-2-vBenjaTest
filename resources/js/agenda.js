@@ -7,7 +7,7 @@ import axios, {isCancel, AxiosError} from 'axios';
 document.addEventListener('DOMContentLoaded', function() {
 
   let formulario = document.querySelector("#formularioEvento");
-  document.getElementById("start").disabled = true;
+  //document.getElementById("start").disabled = true;
   //busca el div para poner la agenda
   var calendarEl = document.getElementById('agenda');
 
@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
       right:'dayGridMonth,timeGridWeek,listWeek' ,
     },
 
-    //events:"http://localhost:8000/test/mostrar",
+    //events:"http://localhost:8000/agenda/mostrar",
 
     eventSources:{
-      url: baseURL+"/test/mostrar",
+      url: baseURL+"/agenda/mostrar",
       method:"POST",
       extraParams:{
         _token: formulario._token.value,
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var evento = info.event;
       console.log(evento);
 
-        axios.post(baseURL+"/test/editar/"+info.event.id).
+        axios.post(baseURL+"/agenda/editar/"+info.event.id).
         then(
           (respuesta)=>{
 
@@ -108,16 +108,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // al hacer click en btn guardar, se recolectan datos ingresados
   document.getElementById("btnGuardar").addEventListener("click",function(){
     
-    enviarDatos("/test/agregar");
+    enviarDatos("/agenda/agregar");
   });
     
   document.getElementById("btnEliminar").addEventListener("click",function(){
-    enviarDatos("/test/borrar/"+formulario.id.value);
+    enviarDatos("/agenda/borrar/"+formulario.id.value);
 
   });
 
   document.getElementById("btnModificar").addEventListener("click",function(){
-    enviarDatos("/test/actualizar/"+formulario.id.value);
+    enviarDatos("/agenda/actualizar/"+formulario.id.value);
 
   });
 
@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
     then(
       (respuesta)=>{
         //actualiza eventos de url, "refresca"
+        respuesta.data.start = 
         calendar.refetchEvents();
         $("#boton").modal("hide");
       }
@@ -165,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       )
+      $("#boton").modal("hide");
   }
 
 
