@@ -2,15 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class EventosController extends Controller
 {
+
+
+
     public function __construct() {
         //verifica que se inicie sesion antes de construir
         $this->middleware('auth');
+    }
+
+
+    public function index()
+    {
+        $clientes = Cliente::all();
+        return view('agenda.index')->with(compact("clientes"));
+        //return view('agenda.index');
     }
 
     public function store(Request $request){

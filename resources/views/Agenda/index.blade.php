@@ -43,6 +43,32 @@
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Escribe el titulo del evento">
               </div>
               <P></P>
+
+              <label for="clientes">Cliente:</label>
+              <select name="clientes" id="clientes">
+                <optgroup label="Clientes inscritos">
+                  <option value="none">---</option>
+                  @foreach ($clientes as $cl)
+
+                  <option value="{{$cl->id}}">{{$cl->nombre}}</option>
+
+                  @endforeach
+                </optgroup>
+                
+              </select>
+
+              <label for="servicios">Servicio:</label>
+              <select name="servicios" id="servicios" >
+                <optgroup label="Servicios disponibles">
+                  <option value="none">---</option>
+                  @foreach ($servicios as $sv)
+
+                  <option value="{{$sv->id}}">{{$sv->tipo_servicio}}</option>
+
+                  @endforeach
+                </optgroup>
+                
+              </select>
               <div class="form-group col-md-4">
                 <label >Hora</label>
                 <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora">

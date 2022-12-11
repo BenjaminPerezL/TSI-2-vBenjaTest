@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
     dateClick: function(info){
       //resetear form y luego asignar fechas clickeadas
       formulario.reset();
-      document.getElementById('exampleModalLabel').textContent = 'Datos Nueva Cita'
-      document.getElementById('btnModificar').hidden = true
-      document.getElementById('btnEliminar').hidden = true
-      document.getElementById('btnGuardar').hidden = false
+      document.getElementById('exampleModalLabel').textContent = 'Datos Nueva Cita';
+      document.getElementById('btnModificar').hidden = true;
+      document.getElementById('btnEliminar').hidden = true;
+      document.getElementById('btnGuardar').hidden = false;
 
-      formulario.start.value=info.dateStr
-      formulario.end.value=info.dateStr
+      formulario.start.value=info.dateStr;
+      formulario.end.value=info.dateStr;
       //alert('clicked ');
       $("#boton").modal("show");
     },
@@ -84,17 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
             formulario.end.value = respuesta.data.end.substring(0,10);
 
             
-            document.getElementById('exampleModalLabel').textContent = 'Modificar Datos Cita'
-            document.getElementById('btnGuardar').hidden = true
-            document.getElementById('btnModificar').hidden = false
-            document.getElementById('btnEliminar').hidden = false
+            document.getElementById('exampleModalLabel').textContent = 'Modificar Datos Cita';
+            document.getElementById('btnGuardar').hidden = true;
+            document.getElementById('btnModificar').hidden = false;
+            document.getElementById('btnEliminar').hidden = false;
             
             $("#boton").modal("show");
           }
           ).catch(
             error=>{
               if(error.response){
-                console.log(error.response.data)
+                console.log(error.response.data);
               }
             }
           )
@@ -102,6 +102,22 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   //mostrar calendario
   calendar.render();
+
+
+
+
+  
+  // funcion q al cambiar cmbbx sevicios cambia el titulo
+
+  document.getElementById("servicios").addEventListener("click",function(){
+    var index = document.getElementById("servicios").selectedIndex;
+     var serv = document.getElementById("servicios");
+     //document.getElementById('title').value = document.getElementById(serv).text;
+     //document.getElementById('title').value = document.getElementById("servicios").value;
+     document.getElementById('title').value = document.getElementById("servicios").title;
+    });
+
+
 
 
   //CLICK EN BTN GUARDAR

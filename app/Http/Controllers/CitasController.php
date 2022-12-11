@@ -11,7 +11,7 @@ class CitasController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        $cita = Cita::all() ;
+        $citas = Cita::all() ;
         return view('cita.index',compact("cita"));
     }
     public function store(Request $request){

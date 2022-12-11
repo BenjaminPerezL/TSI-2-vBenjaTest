@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
 
 class AgendaController extends Controller
@@ -12,6 +14,10 @@ class AgendaController extends Controller
     }
 
     public function index(){
-        return view('agenda.index');
+        $clientes = Cliente::all();
+        $servicios = Servicio::all() ;
+        return view('agenda.index')->with(compact("clientes"))
+                                    ->with(compact("servicios"));
+        //return view('agenda.index');
     }
 }

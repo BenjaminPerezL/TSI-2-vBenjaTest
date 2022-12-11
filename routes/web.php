@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\{ServiciosController,ClientesController,AgendaController,UsuariosController,TestController};
+use App\Http\Controllers\{EventosController,ServiciosController,ClientesController,AgendaController,UsuariosController,TestController};
 
 
 /*
@@ -31,7 +31,7 @@ Route::POST('/servicios', [ServiciosController::class, 'store'])->name('servicio
 Route::delete('/servicios/{servicio}', [ServiciosController::class,'destroy'])->name('servicios.destroy');
 Route::get('/servicios/{servicio}/edit', [ServiciosController::class, 'edit'])->name('servicios.edit');
 Route::put('/servicios/{servicio}',[ServiciosController::class,'update'])->name('servicios.update');
-
+//AGENDA OCUPA AGENDACOTROLLER PARA INDEX Y EL RESTO CON EVENTOS CONTROLLER
 Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
 Route::post('/agenda/mostrar', [App\Http\Controllers\EventosController::class, 'show']);
 Route::post('/agenda/agregar', [App\Http\Controllers\EventosController::class, 'store']);
